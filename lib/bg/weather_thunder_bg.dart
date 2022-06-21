@@ -38,7 +38,7 @@ class _WeatherCloudBgState extends State<WeatherThunderBg>
     _images.add(image3);
     _images.add(image4);
     _images.add(image5);
-    weatherPrint("获取雷暴图片成功： ${_images?.length}");
+    weatherPrint("获取雷暴图片成功： ${_images.length}");
     _state = WeatherDataState.init;
     setState(() {});
   }
