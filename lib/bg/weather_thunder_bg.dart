@@ -170,7 +170,7 @@ class _WeatherCloudBgState extends State<WeatherThunderBg>
     var size = SizeInherited.of(context)?.size;
     var width = size?.width ?? 0;
     var height = size?.height ?? 0;
-    var widthRatio = size?.width ?? 0 / 392.0;
+    var widthRatio = (size?.width ?? 0) / 392.0;
     // 配置三个闪电信息
     for (var i = 0; i < 3; i++) {
       var param = ThunderParams(
@@ -252,7 +252,7 @@ class ThunderParams {
   ui.Image image; // 配置闪电的图片资源
   double x = 0; // 图片展示的 x 坐标
   double y = 0; // 图片展示的 y 坐标
-  double alpha = 0; // 闪电的 alpha 属性
+  double alpha = 10; // 闪电的 alpha 属性
   int get imgWidth => image.width; // 雷电图片的宽度
   int get imgHeight => image.height; // 雷电图片的高度
   final double width, height, widthRatio;

@@ -42,7 +42,7 @@ class _WeatherCloudBgState extends State<WeatherCloudBg> {
         painter: BgPainter(
             _images,
             widget.weatherType,
-            SizeInherited.of(context)?.size.width ?? 0 / 392.0,
+            (SizeInherited.of(context)?.size.width ?? 0) / 392.0,
             SizeInherited.of(context)?.size.width),
       );
     } else {

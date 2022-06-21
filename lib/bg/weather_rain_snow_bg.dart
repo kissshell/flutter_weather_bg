@@ -64,8 +64,8 @@ class _WeatherRainSnowBgState extends State<WeatherRainSnowBg>
         } else if (widget.weatherType == WeatherType.heavySnow) {
           count = 200;
         }
-        var widthRatio = SizeInherited.of(context)?.size.width ?? 0 / 392.0;
-        var heightRatio = SizeInherited.of(context)?.size.height ?? 0/ 817;
+        var widthRatio = (SizeInherited.of(context)?.size.width ?? 0) / 392.0;
+        var heightRatio = (SizeInherited.of(context)?.size.height ?? 0 )/ 817;
         for (int i = 0; i < count; i++) {
           var rainSnow = RainSnowParams(
               widget.viewWidth, widget.viewHeight, widget.weatherType);
