@@ -26,7 +26,7 @@ class _WeatherCloudBgState extends State<WeatherCloudBg> {
     var image2 = await ImageUtils.getImage('images/sun.webp');
     _images.add(image1);
     _images.add(image2);
-    weatherPrint("获取云层图片成功： ${_images?.length}");
+    weatherPrint("获取云层图片成功： ${_images.length}");
     setState(() {});
   }
 

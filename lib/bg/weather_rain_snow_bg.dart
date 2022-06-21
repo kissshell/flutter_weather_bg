@@ -38,7 +38,7 @@ class _WeatherRainSnowBgState extends State<WeatherRainSnowBg>
     _images.clear();
     _images.add(image1);
     _images.add(image2);
-    weatherPrint("获取雨雪图片成功： ${_images?.length}");
+    weatherPrint("获取雨雪图片成功： ${_images.length}");
     _state = WeatherDataState.init;
     setState(() {});
   }
