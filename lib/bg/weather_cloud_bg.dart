@@ -11,7 +11,7 @@ import 'package:flutter_weather_bg/utils/weather_type.dart';
 class WeatherCloudBg extends StatefulWidget {
   final WeatherType weatherType;
 
-  WeatherCloudBg({Key key, this.weatherType}) : super(key: key);
+  WeatherCloudBg({Key? key, required this.weatherType}) : super(key: key);
 
   @override
   _WeatherCloudBgState createState() => _WeatherCloudBgState();
@@ -42,8 +42,8 @@ class _WeatherCloudBgState extends State<WeatherCloudBg> {
         painter: BgPainter(
             _images,
             widget.weatherType,
-            SizeInherited.of(context).size.width / 392.0,
-            SizeInherited.of(context).size.width),
+            SizeInherited.of(context)?.size.width ?? 0 / 392.0,
+            SizeInherited.of(context)?.size.width),
       );
     } else {
       return Container();

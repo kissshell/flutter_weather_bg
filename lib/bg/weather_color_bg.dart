@@ -8,7 +8,7 @@ class WeatherColorBg extends StatelessWidget {
   /// 控制背景的高度
   final double height;
 
-  WeatherColorBg({Key key, this.weatherType, this.height}) : super(key: key);
+  WeatherColorBg({Key? key, required this.weatherType, required this.height}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

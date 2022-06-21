@@ -15,7 +15,7 @@ class WeatherRainSnowBg extends StatefulWidget {
   final double viewHeight;
 
   WeatherRainSnowBg(
-      {Key key, this.weatherType, this.viewWidth, this.viewHeight})
+      {Key? key, required this.weatherType, required this.viewWidth, required this.viewHeight})
       : super(key: key);
 
   @override
@@ -25,10 +25,10 @@ class WeatherRainSnowBg extends StatefulWidget {
 class _WeatherRainSnowBgState extends State<WeatherRainSnowBg>
     with SingleTickerProviderStateMixin {
   List<ui.Image> _images = [];
-  AnimationController _controller;
+  late AnimationController _controller;
   List<RainSnowParams> _rainSnows = [];
   int count = 0;
-  WeatherDataState _state;
+  WeatherDataState? _state;
 
   /// 异步获取雨雪的图片资源和初始化数据
   Future<void> fetchImages() async {
@@ -64,8 +64,8 @@ class _WeatherRainSnowBgState extends State<WeatherRainSnowBg>
         } else if (widget.weatherType == WeatherType.heavySnow) {
           count = 200;
         }
-        var widthRatio = SizeInherited.of(context).size.width / 392.0;
-        var heightRatio = SizeInherited.of(context).size.height / 817;
+        var widthRatio = SizeInherited.of(context)?.size.width ?? 0 / 392.0;
+        var heightRatio = SizeInherited.of(context)?.size.height ?? 0/ 817;
         for (int i = 0; i < count; i++) {
           var rainSnow = RainSnowParams(
               widget.viewWidth, widget.viewHeight, widget.weatherType);
@@ -246,31 +246,31 @@ class RainSnowPainter extends CustomPainter {
 
 class RainSnowParams {
   /// x 坐标
-  double x;
+  double x = 0;
 
   /// y 坐标
-  double y;
+  double y = 0;
 
   /// 下落速度
-  double speed;
+  double speed = 0;
 
   /// 绘制的缩放
-  double scale;
+  double scale = 1;
 
   /// 宽度
-  double width;
+  double width = 0;
 
   /// 高度
-  double height;
+  double height = 0;
 
   /// 透明度
-  double alpha;
+  double alpha = 0;
 
   /// 天气类型
   WeatherType weatherType;
 
-  double widthRatio;
-  double heightRatio;
+  double widthRatio = 1;
+  double heightRatio =1 ;
 
   RainSnowParams(this.width, this.height, this.weatherType);
 

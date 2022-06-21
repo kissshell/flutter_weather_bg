@@ -12,7 +12,7 @@ import 'package:flutter_weather_bg/utils/weather_type.dart';
 class WeatherNightStarBg extends StatefulWidget {
   final WeatherType weatherType;
 
-  WeatherNightStarBg({Key key, this.weatherType}) : super(key: key);
+  WeatherNightStarBg({Key? key, required this.weatherType}) : super(key: key);
 
   @override
   _WeatherNightStarBgState createState() => _WeatherNightStarBgState();
@@ -20,19 +20,19 @@ class WeatherNightStarBg extends StatefulWidget {
 
 class _WeatherNightStarBgState extends State<WeatherNightStarBg>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
   List<_StarParam> _starParams = [];
   List<_MeteorParam> _meteorParams = [];
   WeatherDataState _state = WeatherDataState.init;
-  double width;
-  double height;
-  double widthRatio;
+  double width = 0;
+  double height = 0;
+  double widthRatio = 1;
 
   /// 准备星星的参数信息
   void fetchData() async {
-    Size size = SizeInherited.of(context).size;
-    width = size.width;
-    height = size.height;
+    Size? size = SizeInherited.of(context)?.size;
+    width = size?.width ?? 0;
+    height = size?.height ?? 0;
     widthRatio = width / 392.0;
     weatherPrint("开始准备星星参数");
     _state = WeatherDataState.loading;
@@ -208,11 +208,11 @@ class _StarPainter extends CustomPainter {
 }
 
 class _MeteorParam {
-  double translateX;
-  double translateY;
-  double radians;
+  double translateX = 0;
+  double translateY = 0;
+  double radians = 0;
 
-  double width, height, widthRatio;
+  double width = 0, height = 0, widthRatio = 1;
 
   /// 初始化数据
   void init(width, height, widthRatio) {
@@ -240,28 +240,28 @@ class _MeteorParam {
 
 class _StarParam {
   /// x 坐标
-  double x;
+  double x = 0;
 
   /// y 坐标
-  double y;
+  double y = 0;
 
   /// 透明度值，默认为 0
   double alpha = 0.0;
 
   /// 缩放
-  double scale;
+  double scale = 1;
 
   /// 是否反向动画
   bool reverse = false;
 
   /// 当前下标值
-  int index;
+  int index = 0;
 
-  double width;
+  double width = 0;
 
-  double height;
+  double height = 1;
 
-  double widthRatio;
+  double widthRatio = 1;
 
   _StarParam(this.index);
 

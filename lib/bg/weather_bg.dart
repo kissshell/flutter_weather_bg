@@ -15,7 +15,7 @@ class WeatherBg extends StatefulWidget {
   final double height;
 
   WeatherBg(
-      {Key key, this.weatherType, @required this.width, @required this.height})
+      {Key? key, required this.weatherType, required this.width, required this.height})
       : super(key: key);
 
   @override
@@ -24,7 +24,7 @@ class WeatherBg extends StatefulWidget {
 
 class _WeatherBgState extends State<WeatherBg>
     with SingleTickerProviderStateMixin {
-  WeatherType _oldWeatherType;
+  WeatherType? _oldWeatherType;
   bool needChange = false;
   var state = CrossFadeState.showSecond;
 
@@ -43,7 +43,7 @@ class _WeatherBgState extends State<WeatherBg>
     var oldBgWidget;
     if (_oldWeatherType != null) {
       oldBgWidget = WeatherItemBg(
-        weatherType: _oldWeatherType,
+        weatherType: _oldWeatherType!,
         width: widget.width,
         height: widget.height,
       );
@@ -87,7 +87,7 @@ class WeatherItemBg extends StatelessWidget {
   final width;
   final height;
 
-  WeatherItemBg({Key key, this.weatherType, this.width, this.height})
+  WeatherItemBg({Key? key, required this.weatherType, this.width, this.height})
       : super(key: key);
 
   /// 构建晴晚背景效果
@@ -130,7 +130,7 @@ class WeatherItemBg extends StatelessWidget {
       child: ClipRect(
         child: Stack(
           children: [
-            WeatherColorBg(weatherType: weatherType),
+            WeatherColorBg(weatherType: weatherType, height: height,),
             WeatherCloudBg(
               weatherType: weatherType,
             ),
@@ -148,13 +148,13 @@ class SizeInherited extends InheritedWidget {
   final Size size;
 
   const SizeInherited({
-    Key key,
-    @required Widget child,
-    @required this.size,
+    Key? key,
+    required Widget child,
+    required this.size,
   })  : assert(child != null),
         super(key: key, child: child);
 
-  static SizeInherited of(BuildContext context) {
+  static SizeInherited? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<SizeInherited>();
   }
 
